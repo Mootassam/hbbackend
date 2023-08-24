@@ -1,4 +1,4 @@
-export default class ProductService { 
+export default class VipService { 
 
     async create(data) { 
     }
