@@ -1,15 +1,20 @@
-export default class BrandService { 
+import BrandsRepository from "./../database/repositories/brandsRepository";
 
-    async create(data) { 
-    }
-
-    async update(id, data) { 
-
-    }
-
-    async destroyAll(ids) { 
-
-    }
-    async findById(id) { } 
-
+export default class BrandService {
+  async create(data) {
+    const record = await BrandsRepository.create(data);
+  }
+  async update(id, data) {
+    const record = await BrandsRepository.update(id);
+  }
+  async destroyAll(ids) {
+    try {
+      for (const id of ids) {
+        await BrandsRepository.destroy(id);
+      }
+    } catch (error) {}
+  }
+  async findById(id) {
+    return BrandsRepository.findById(id);
+  }
 }
